@@ -1,0 +1,72 @@
+section {
+    background-color: black;
+    padding: 0px 0px 0px 36px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    .hero-container {
+        font-weight: bold;
+        position: relative;
+        max-width: 1100px;
+        margin: 0px auto;
+        width: 100%;
+        
+        inset: 0px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 64px 64px;
+    
+        .available {
+            opacity: 1;
+            transform: none;
+            transition:
+                opacity 0.9s 100ms,
+                transform 0.9s 100ms;
+            font-family: monospace;
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgb(255, 109, 58);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 1px;
+            border-left: 2px solid rgb(255, 109, 58);
+            padding-left: 16px;
+        }
+
+        .name {
+            font-family: monospace;
+            letter-spacing: 2px;
+            font-weight: 900;
+            font-size: 108px;
+            margin: 0;
+            padding: 0;
+
+            .firstname {
+                display: inline-block;
+                color: white;
+            }
+
+            .lastname {
+                display: block;
+                color: transparent;
+                -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        .introduction {
+            opacity: 1; transform: none; transition: opacity 0.9s 550ms, transform 0.9s 550ms; font-family: monospace; font-size: 0.75rem; line-height: 1.9; color: rgba(255, 255, 255, 0.38); max-width: 500px; margin-bottom: 3rem;
+
+            span {
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+}

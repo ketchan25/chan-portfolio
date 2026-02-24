@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Navbar } from './components/Navbar'
-import { Hero } from './components/Sections/Hero'
-import { AboutMe } from './components/Sections/AboutMe'
+import { Navbar } from './layout/Navbar'
+import { Hero } from './layout/Sections/Hero'
+import { AboutMe } from './layout/Sections/AboutMe'
 
 function App() {
   return (
