@@ -45,7 +45,7 @@ section {
             font-family: monospace;
             letter-spacing: 2px;
             font-weight: 900;
-            font-size: 108px;
+            font-size: 72px;
             margin: 0;
             padding: 0;
 
@@ -67,6 +67,10 @@ section {
             span {
                 color: rgba(255, 255, 255, 0.7);
             }
+        }
+
+        .view-experience {
+            background-color: white;
         }
     }
 }

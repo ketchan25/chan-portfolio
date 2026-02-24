@@ -1,7 +1,5 @@
-import '../../styles/sections/hero.scss'
-
 export const Button = () => {
     return (
-        <button></button>
+        <button className="view-experience">View Experience</button>
     );
 }

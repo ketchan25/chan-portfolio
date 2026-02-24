@@ -1,3 +1,4 @@
+import { Button } from '../../components/Button';
 import '../../styles/sections/hero.scss'
 
 const navLinks = [
@@ -26,6 +27,8 @@ export const Hero = () => {
                     <span> end-to-end ownership </span>  
                     and a passion for clean architecture.
                 </p>
+
+                <Button></Button>
             </div>
         </section>
     );
