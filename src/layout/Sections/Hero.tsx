@@ -7,24 +7,49 @@ const abilities = [
     "PHP / Laravel Expert",
     "Microservices Architect",
     "Full-Stack Developer",
-    "DevOps Enthusiast"
 ]
 
-// const useTextTypeWriter = (labels: string[]) => {
-//     const [text, setText] = useState<string | null>(null);
-//     const [labelIndex, setLabelIndex] = useState<number>(0);
+const useTextTypeWriter = (labels: string[]) => {
+    const [text, setText] = useState<string | null>(null);
+    const [characterIndex, setCharacterIndex] = useState<number>(0);
+    const [labelIndex, setLabelIndex] = useState<number>(0);
+    const [deleting, setDeleting] = useState<boolean>(false);
 
-//     const currentLabel = labels[labelIndex];
-//         setText(currentLabel.slice(0, 1))
-//     useEffect(() => {
+    useEffect(() => {
+        if (! deleting) setTimeout(() => { setCharacterIndex(characterIndex + 1)}, 100)
         
-//     }, [])
-//     return text;
-// }
+        const currentLabel = labels[labelIndex];
+        const typedText = currentLabel.slice(0, characterIndex);
 
-// const textTyped = useTextTypeWriter(abilities)
+        if (typedText.length <= currentLabel.length && typedText.length > 0) {
+            setText(typedText)
+        }
+
+        if (typedText.length == currentLabel.length) setTimeout(() => setDeleting(true), 1000)
+
+         if (deleting) {
+            if (typedText.length <= currentLabel.length && typedText.length > 0) {
+                setTimeout(() => setCharacterIndex(characterIndex - 1), 100)
+            }
+
+            if (typedText.length == 0) {
+                setDeleting(false);
+
+                if (labels.length == labelIndex + 1) {
+                    setLabelIndex(0)
+                } else {
+                    setLabelIndex(labelIndex + 1)
+                }
+            }
+         }
+        
+    }, [characterIndex, labelIndex, deleting])
+
+    return text;
+}
 
 export const Hero = () => {
+    const textTyped = useTextTypeWriter(abilities)
     return (
         <section>
             <div className="hero-container">
@@ -38,14 +63,12 @@ export const Hero = () => {
                 </h1>
 
                 <div>
-                    {/* <span>{textTyped}</span> */}
-                    <span style={{ display: "inline-block", width: 2, height: "1em", background: "rgb(255, 109, 58", animation: "blink 1s step-end infinite", verticalAlign: "middle" }} />
+                    <span className="text-typed">{textTyped}</span>
+                    <span className="cursor" />
                 </div>
 
                 <p className="introduction">
-                    9+ years crafting robust, scalable web systems. From RFID & IoT to enterprise microservices & affiliate platforms — I bring
-                    <span> end-to-end ownership </span>
-                    and a passion for clean architecture.
+                    9+ years crafting robust, scalable web systems. From <span>RFID & IoT to enterprise microservices & affiliate platforms</span> — I bring end-to-end ownership. 
                 </p>
 
                 <div className="action-buttons">
