@@ -1,25 +1,17 @@
 import cx from "classnames";
 
 interface ButtonProps {
-    label: string;
+    content: string | React.ReactNode;
     href?: string;
     onClick: () => void;
-    type?: string;
+    className?: string;
     icon?: React.ReactNode;
   }
 
-export const Button = ({label, href, onClick, type, icon} : ButtonProps) => {
+export const Button = ({content, href, onClick, className, icon} : ButtonProps) => {
     return (
         href
-            ? <button className={cx({
-                ['view-experience']: type === "view-experience",
-                ['get-in-touch']: type === "get-in-touch",
-                ['email']: type === "email",
-            })} onClick={onClick}>{label}</button>
-            : <a className={cx({
-                ['view-experience']: type === "view-experience",
-                ['get-in-touch']: type === "get-in-touch",
-                ['email']: type === "email",
-            })}>{label}</a>
+            ? <a className={className}>{content}</a>
+            : <button className={className} onClick={onClick}>{content}</button>
     );
 }

@@ -1,39 +1,38 @@
-import { useEffect, useState } from 'react';
-import { Button } from '../../components/Button';
+import { useEffect, useState } from 'react'
+import { Button } from '../../components/Button'
 import '../../styles/sections/hero.scss'
 
 const abilities = [
     "Senior Software Engineer",
-    "PHP / Laravel Expert",
-    "Microservices Architect",
+    "Laravel Expert",
     "Full-Stack Developer",
 ]
 
 const useTextTypeWriter = (labels: string[]) => {
-    const [text, setText] = useState<string | null>(null);
-    const [characterIndex, setCharacterIndex] = useState<number>(0);
-    const [labelIndex, setLabelIndex] = useState<number>(0);
-    const [deleting, setDeleting] = useState<boolean>(false);
+    const [text, setText] = useState<string | null>(null)
+    const [characterIndex, setCharacterIndex] = useState<number>(0)
+    const [labelIndex, setLabelIndex] = useState<number>(0)
+    const [deleting, setDeleting] = useState<boolean>(false)
 
     useEffect(() => {
-        if (! deleting) setTimeout(() => { setCharacterIndex(characterIndex + 1)}, 100)
-        
-        const currentLabel = labels[labelIndex];
-        const typedText = currentLabel.slice(0, characterIndex);
+        if (!deleting) setTimeout(() => { setCharacterIndex(characterIndex + 1) }, 100)
+
+        const currentLabel = labels[labelIndex]
+        const typedText = currentLabel.slice(0, characterIndex)
 
         if (typedText.length <= currentLabel.length && typedText.length > 0) {
             setText(typedText)
         }
 
-        if (typedText.length == currentLabel.length) setTimeout(() => setDeleting(true), 1000)
+        if (typedText.length == currentLabel.length) setTimeout(() => setDeleting(true), 200)
 
-         if (deleting) {
+        if (deleting) {
             if (typedText.length <= currentLabel.length && typedText.length > 0) {
-                setTimeout(() => setCharacterIndex(characterIndex - 1), 100)
+                setTimeout(() => setCharacterIndex(characterIndex - 1), 50)
             }
 
             if (typedText.length == 0) {
-                setDeleting(false);
+                setDeleting(false)
 
                 if (labels.length == labelIndex + 1) {
                     setLabelIndex(0)
@@ -41,8 +40,8 @@ const useTextTypeWriter = (labels: string[]) => {
                     setLabelIndex(labelIndex + 1)
                 }
             }
-         }
-        
+        }
+
     }, [characterIndex, labelIndex, deleting])
 
     return text;
@@ -51,7 +50,7 @@ const useTextTypeWriter = (labels: string[]) => {
 export const Hero = () => {
     const textTyped = useTextTypeWriter(abilities)
     return (
-        <section>
+        <section className="section-hero">
             <div className="hero-container">
                 <div className="available">
                     <span>Available for freelance & full-time</span>
@@ -68,13 +67,13 @@ export const Hero = () => {
                 </div>
 
                 <p className="introduction">
-                    9+ years crafting robust, scalable web systems. From <span>RFID & IoT to enterprise microservices & affiliate platforms</span> — I bring end-to-end ownership. 
+                    9+ years crafting robust, scalable web systems. From <span>RFID & IoT to enterprise microservices & affiliate platform</span> — I bring end-to-end ownership.
                 </p>
 
                 <div className="action-buttons">
-                    <Button href="#experience" label="VIEW EXPERIENCE" onClick={() => { }} type="view-experience"></Button>
-                    <Button href="#experience" label="GET IN TOUCH" onClick={() => { }} type="get-in-touch"></Button>
-                    <Button label="✉ EMAIL ME" onClick={() => { }} type="email"></Button>
+                    <Button href="#experience" content="VIEW EXPERIENCE" onClick={() => { }} className="view-experience"></Button>
+                    <Button href="#experience" content="GET IN TOUCH" onClick={() => { }} className="get-in-touch"></Button>
+                    <Button content="✉ EMAIL ME" onClick={() => { }} className="email"></Button>
                 </div>
             </div>
         </section>

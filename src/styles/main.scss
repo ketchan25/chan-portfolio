@@ -1,9 +1,18 @@
+@use "../styles/variables" as vars;
+
 body {
     margin: 0%;
     padding: 0%;
-    
+    background-color: rgba(10, 10, 14);
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+.section-bullet {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background-color: vars.$accent;
 }
