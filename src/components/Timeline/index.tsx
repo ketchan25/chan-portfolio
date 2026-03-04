@@ -1,21 +1,40 @@
 import type React from "react";
-import "./carddetail.scss";
+import "./timeline.scss";
+import { Tag } from "../Tag";
+import { Accordion } from "../Accordion";
 
 interface TimelineProps {
-    dateRange: string;
+    dateRangeContent: string | React.ReactNode;
     title: string;
     subTitle: string;
-    children: React.ReactNode
+    tags: string[];
+    descriptions: {
+        collapsed: boolean
+        data: string[]
+    },
 }
 
-export const Timeline = ({dateRange, title, subTitle, children} : TimelineProps) => {
+export const Timeline = ({dateRangeContent, title, subTitle, tags, descriptions} : TimelineProps) => {
     return (
-        <div className="timeline-container">
+        <div className="timeline-content">
+            <div className="timeline-line"></div>
+            <div className="timeline-bullet"></div>
             <div>
-                <span className="title">{dateRange}</span>
+                <span>{dateRangeContent}</span>
             </div>
             <div>
                 <span className="title">{title}</span>
+            </div>
+            <div>
+                <span className="sub-title">{subTitle}</span>
+            </div>
+            <div className="tags">
+                {tags.map((data, index) => (
+                    <Tag key={index} label={data}></Tag>
+                ))}
+            </div>
+            <div className="descriptions">
+                <Accordion label="Timeline View" list={descriptions.data} isCollapsed={! descriptions.collapsed}></Accordion>
             </div>
         </div>
     );

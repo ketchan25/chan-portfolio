@@ -1,14 +1,32 @@
 @use "../../styles/variables" as vars;
 
-.card-detail{
-    background-color: rgb(32,21,22);
-    border: 1px solid vars.$accent;
-    border-radius: 8px;
-    padding: min(16px, 30%);
-    border: 1px solid rgba(255, 109, 58, 0.15);
-    
+.timeline-content {
+    padding-left: 2.5rem;
+    padding-bottom: 2.5rem;
+    position: relative;
 
-    .title {
+    .timeline-line {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .timeline-bullet {
+        position: absolute;
+        left: -5px;
+        top: 8px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: rgb(255, 109, 58);
+        border: 2px solid rgb(255, 109, 58);
+        box-shadow: rgba(255, 109, 58, 0.5) 0px 0px 12px;
+    }
+
+    .date {
         font-family: vars.$font;
         color: vars.$accent;
         display: flex;
@@ -18,31 +36,33 @@
         text-transform: uppercase;
     }
 
-    .detail {
-        display: flex;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        gap: 12px;
-        align-items: center;
-        padding: 8px;
+    .title {
         font-family: vars.$font;
+        color: white;
+        display: flex;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding: 4px;
+        text-transform: uppercase;
+        margin-top: 8px;
+    }
 
-        .icon {
-            color: vars.$accent;
-            text-align: center;
-            font-size: 12px;
-            width: 18px;
-        }
+    .sub-title {
+        font-family: Georgia, serif;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.4);
+        display: flex;
+        font-size: 12px;
+        letter-spacing: 1px;
+        padding: 4px;
+        margin-bottom: 16px;
+    }
 
-        .detail-type {
-            color: rgba(255, 255, 255, 0.28);
-            font-size: 10px;
-            text-transform: uppercase;
-            width: 50px;
-        }
-
-        .description {
-            color: rgba(255, 255, 255, 0.58);
-            font-size: 10px;
-        }
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 32px;
     }
 }
