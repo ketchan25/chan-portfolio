@@ -9,7 +9,7 @@ interface ContactInfo {
     href: string;
 }
 
-const contactInfo = [
+const contactInfo: ContactInfo[] = [
     {icon: "✉", name: "Email", description: "ketchandetera@gmail.com", href: "mailto:ketchandetera@gmail.com",},
     {icon: "☎", name: "Phone", description: "0928-185-1521", href: "tel:+639281851521"},
     {icon: "in", name: "LinkedIn", description: "View Profile", href: "https://www.linkedin.com/in/christian-detera-b53024162"},

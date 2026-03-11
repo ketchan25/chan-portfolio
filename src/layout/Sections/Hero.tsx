@@ -51,8 +51,6 @@ const useTextTypeWriter = (labels: string[]) => {
 
 export const Hero = () => {
     const textTyped = useTextTypeWriter(abilities)
-    const [preloaded, setPreloaded] = useState(false);
-    useEffect(() => { const t = setTimeout(() => setPreloaded(true), 100); return () => clearTimeout(t); }, []);
 
     return (
         <section className="section-hero">
