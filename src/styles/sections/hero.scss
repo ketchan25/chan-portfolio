@@ -12,8 +12,8 @@
     position: relative;
     overflow: hidden;
     background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        background-size: 64px 64px;
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
 
     .hero-container {
         position: relative;
@@ -114,36 +114,35 @@
                 font-family: vars.$font;
                 background-color: rgb(255, 109, 58);
                 height: 48px;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
                 border-color: transparent;
                 border-radius: 4px;
                 font-size: 12px;
                 text-decoration: none;
                 text-transform: uppercase;
                 padding: 0px 32px 0px 32px;
-        
+
                 &:hover {
                     transition: all 0.3s ease-in-out;
                     transform: translateY(-2px);
-                    border: 1px solid rgb(255, 109, 58);
                     box-shadow: 0 16px 200px rgb(255, 109, 58);
-                    background-color: rgb(255, 111, 59);
+                    background-color: rgb(255, 133, 88);
                 }
             }
-        
+
             .get-in-touch {
                 font-family: vars.$font;
                 background-color: transparent;
                 color: rgba(255, 255, 255, 0.38);
                 height: 48px;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
                 border: 1px solid rgba(238, 238, 238, 0.2);
                 border-radius: 4px;
                 font-size: 12px;
                 text-decoration: none;
                 text-transform: uppercase;
                 padding: 0px 32px 0px 32px;
-        
+
                 &:hover {
                     transition: all 0.3s ease-in-out;
                     transform: translateY(-2px);
@@ -151,7 +150,7 @@
                     box-shadow: 0 16px 200px rgb(255, 109, 58);
                     background-color: rgb(255, 109, 58, 0.08);
                     color: rgb(255, 109, 58);
-        
+
                     &::after {
                         transition: all 0.3s ease;
                         transform: translateY(0px);
@@ -160,23 +159,22 @@
                         background-color: transparent;
                         color: rgba(255, 255, 255, 0.7);
                     }
-                    
                 }
             }
-        
+
             .contact-me {
                 font-family: vars.$font;
                 background-color: transparent;
                 color: rgba(255, 255, 255, 0.7);
                 height: 48px;
                 width: 216px;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
                 border: 1px solid rgba(238, 238, 238, 0.2);
                 border-radius: 4px;
                 font-size: 12px;
                 text-decoration: none;
                 text-transform: uppercase;
-        
+
                 &:hover {
                     transition: all 0.3s ease-in-out;
                     transform: translateY(-2px);
@@ -184,7 +182,7 @@
                     box-shadow: 0 16px 200px rgb(255, 109, 58);
                     background-color: rgb(255, 109, 58, 0.08);
                     color: rgb(255, 109, 58);
-        
+
                     &::after {
                         transition: all 0.3s ease;
                         transform: translateY(0px);
@@ -193,22 +191,21 @@
                         background-color: transparent;
                         color: rgba(255, 255, 255, 0.7);
                     }
-                    
                 }
             }
-        
+
             .email {
                 font-family: vars.$font;
                 background-color: transparent;
                 color: rgba(255, 255, 255, 0.38);
                 height: 48px;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
                 border-color: transparent;
                 border-radius: 4px;
                 font-size: 12px;
                 text-transform: uppercase;
                 padding: 0px 32px 0px 32px;
-        
+
                 &:hover {
                     transform: translateX(4px);
                     transition: all 0.3s ease-in-out;

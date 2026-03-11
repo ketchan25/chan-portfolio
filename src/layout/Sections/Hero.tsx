@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '../../components/Button'
 import '../../styles/sections/hero.scss'
 
-const abilities = [
+const abilities: string[] = [
     "Senior Software Engineer",
     "Laravel Expert",
     "Full-Stack Developer",
@@ -49,28 +49,33 @@ const useTextTypeWriter = (labels: string[]) => {
 
 export const Hero = () => {
     const textTyped = useTextTypeWriter(abilities)
+    const [preloaded, setPreloaded] = useState(false);
+    useEffect(() => { const t = setTimeout(() => setPreloaded(true), 100); return () => clearTimeout(t); }, []);
+    const fadeUp = (delay: number): React.CSSProperties => ({ opacity: preloaded ? 1 : 0, transform: preloaded ? "none" : "translateY(40px)", transition: `opacity 0.9s ease ${delay}ms, transform 0.9s ease ${delay}ms` })
     return (
         <section className="section-hero">
+            <div className="glow-background"></div>
+            <div className="glow-ball-1"></div>
+            <div className="glow-ball-2"></div>
             <div className="hero-container">
-                <div className="available">
+                <div style={fadeUp(100)} className="available">
                     <span>Available for freelance & full-time</span>
                 </div>
-
                 <h1 className="name">
-                    <span className="firstname">Christian</span>
-                    <span className="lastname">Detera</span>
+                    <span style={fadeUp(250)} className="firstname">Christian</span>
+                    <span style={fadeUp(350)}className="lastname">Detera</span>
                 </h1>
 
-                <div>
+                <div style={fadeUp(400)}>
                     <span className="text-typed">{textTyped}</span>
                     <span className="cursor" />
                 </div>
 
-                <p className="introduction">
+                <p style={fadeUp(550)} className="introduction">
                     9+ years crafting robust, scalable web systems. From <span>RFID & IoT to enterprise microservices & affiliate platform</span> — I bring end-to-end ownership.
                 </p>
 
-                <div className="action-buttons">
+                <div style={fadeUp(700)} className="action-buttons">
                     <Button href="#experience" content="VIEW EXPERIENCE" onClick={() => { }} className="view-experience"></Button>
                     <Button href="#experience" content="GET IN TOUCH" onClick={() => { }} className="get-in-touch"></Button>
                     <Button content="✉ EMAIL ME" onClick={() => { }} className="email"></Button>
