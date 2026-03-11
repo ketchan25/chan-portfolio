@@ -34,7 +34,7 @@ export const Timeline = ({dateRangeContent, title, subTitle, tags, descriptions}
                 ))}
             </div>
             <div className="descriptions">
-                <Accordion label="Timeline View" list={descriptions.data} isCollapsed={! descriptions.collapsed}></Accordion>
+                <Accordion list={descriptions.data} isCollapsed={! descriptions.collapsed}></Accordion>
             </div>
         </div>
     );

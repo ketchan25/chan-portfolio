@@ -1,14 +1,12 @@
-import cx from "classnames";
 import "./accordion.scss";
 import { useState } from "react";
 
 interface AccordionProps {
-    label: string;
     list: string[];
     isCollapsed: boolean;
   }
 
-export const Accordion = ({label, list, isCollapsed} : AccordionProps) => {
+export const Accordion = ({list, isCollapsed} : AccordionProps) => {
     const [collapsed, setCollapse] = useState<boolean>(isCollapsed)
 
     return (

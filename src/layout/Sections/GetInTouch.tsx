@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../../styles/sections/getintouch.scss";
 import { ContactCard } from "../../components/ContactCard";
 

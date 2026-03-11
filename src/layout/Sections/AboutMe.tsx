@@ -1,4 +1,3 @@
-import { Button } from '../../components/Button';
 import { CardDetail } from '../../components/CardDetail';
 import { CountCard } from '../../components/CountCard';
 import '../../styles/sections/aboutme.scss'

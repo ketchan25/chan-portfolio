@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../../styles/sections/career.scss";
 import { Timeline } from "../../components/Timeline";
 import { Tag } from "../../components/Tag";
