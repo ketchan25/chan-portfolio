@@ -3,6 +3,7 @@ import cx from "classnames";
 import "../../styles/sections/technicalskills.scss";
 import { Button } from "../../components/Button";
 import { Reveal } from "../../components/Reveal";
+import { Icon } from "../../components/Icon";
 
 interface SkillsTab {
     id: "skill-tag" | "proficiency",
@@ -12,53 +13,51 @@ interface SkillsTab {
 interface RecordSkill {
     name: string
     category: "backend" | "frontend" | "devops" | "database" | "tools"
-    level: number
+    level: number,
+    iconName?: string,
 }
 
 interface RecordCategories {
     id: CategoryFilter,
     legendColor?: string,
-    label: string
+    label: string,
 }
 
 type SkillsTabFilter = SkillsTab["id"];
 type CategoryFilter = RecordSkill["category"] | "all"
 
 const SKILLS: RecordSkill[] = [
-    { name: "PHP", category: "backend", level: 95 },
-    { name: "Laravel Framework", category: "backend", level: 95 },
-    { name: "Codeigniter", category: "backend", level: 95 },
-    { name: "Java", category: "backend", level: 80 },
-    { name: "C#", category: "backend", level: 75 },
-    { name: "RESTSOAP", category: "backend", level: 90 },
-    { name: "SOAP", category: "backend", level: 90 },
-    { name: "Microservices", category: "backend", level: 88 },
-    { name: "Socket.IO", category: "backend", level: 75 },
-    { name: "Pusher", category: "backend", level: 75 },
-    { name: "Vue.js", category: "frontend", level: 82 },
-    { name: "Node.js", category: "frontend", level: 75 },
-    { name: "React", category: "frontend", level: 75 },
-    { name: "JavaScript", category: "frontend", level: 88 },
-    { name: "HTML5", category: "frontend", level: 85 },
-    { name: "CSS / SCSS", category: "frontend", level: 85 },
-    { name: "jQuery", category: "frontend", level: 80 },
-    { name: "Docker", category: "devops", level: 80 },
-    { name: "CI / CD", category: "devops", level: 78 },
-    { name: "Linux", category: "devops", level: 85 },
-    { name: "macOS", category: "devops", level: 85 },
-    { name: "Apache", category: "devops", level: 82 },
-    { name: "NGINX", category: "devops", level: 82 },
-    { name: "AWS Lightsail", category: "devops", level: 72 },
-    { name: "Cloudflare", category: "devops", level: 70 },
-    { name: "MySQL", category: "database", level: 90 },
-    { name: "MSSQL", category: "database", level: 75 },
-    { name: "SQLite", category: "database", level: 75 },
-    { name: "ElasticSearch", category: "database", level: 75 },
-    { name: "GitHub", category: "tools", level: 90 },
-    { name: "SVN", category: "tools", level: 90 },
-    { name: "GitLab", category: "tools", level: 90 },
-    { name: "WAMP / LAMP / LEMP", category: "tools", level: 85 },
-    { name: "Firebase", category: "tools", level: 85 },
+    { name: "PHP", category: "backend", level: 95, iconName: "php" },
+    { name: "Laravel Framework", category: "backend", level: 95, iconName: "laravel"  },
+    { name: "Lumen", category: "backend", level: 95, iconName: "lumen"  },
+    { name: "Codeigniter", category: "backend", level: 95, iconName: "codeigniter"  },
+    { name: "Java", category: "backend", level: 80, iconName: "java"  },
+    { name: "C#", category: "backend", level: 75, iconName: "csharp"  },
+    { name: "Node.js", category: "backend", level: 75, iconName: "nodejs"  },
+    { name: "Android", category: "backend", level: 85, iconName: "android"  },
+    { name: "Socket.IO", category: "backend", level: 75, iconName: "socketio"  },
+    { name: "Bootstrap", category: "frontend", level: 82, iconName: "bootstrap"  },
+    { name: "Vue.js", category: "frontend", level: 82, iconName: "vuejs"  },
+    { name: "React", category: "frontend", level: 75, iconName: "react"  },
+    { name: "JavaScript", category: "frontend", level: 88, iconName: "javascript"  },
+    { name: "HTML5", category: "frontend", level: 85, iconName: "html5" },
+    { name: "CSS3", category: "frontend", level: 85, iconName: "css3" },
+    { name: "SCSS", category: "frontend", level: 85, iconName: "sass" },
+    { name: "jQuery", category: "frontend", level: 80, iconName: "jquery" },
+    { name: "Docker", category: "devops", level: 80, iconName: "docker" },
+    { name: "Linux", category: "devops", level: 85, iconName: "linux"  },
+    { name: "Apache", category: "devops", level: 82, iconName: "apache"  },
+    { name: "NGINX", category: "devops", level: 82, iconName: "nginx"  },
+    { name: "Cloudflare", category: "devops", level: 70, iconName: "cloudflare"},
+    { name: "MySQL", category: "database", level: 90, iconName: "mysql"  },
+    { name: "MSSQL", category: "database", level: 75, iconName: "mssql"  },
+    { name: "SQLite", category: "database", level: 75, iconName: "sqlite"  },
+    { name: "ElasticSearch", category: "database", level: 75, iconName: "elasticsearch"  },
+    { name: "GitHub", category: "tools", level: 90 , iconName: "github" },
+    { name: "GitLab", category: "tools", level: 90, iconName: "gitlab"  },
+    { name: "Firebase", category: "tools", level: 85, iconName: "firebase"  },
+    { name: "Selenium", category: "tools", level: 85, iconName: "selenium"  },
+    
 ]
 
 const categories: RecordCategories[] = [
@@ -79,10 +78,6 @@ export const TechnicalSkills = () => {
     const [category, setCategory] = useState<CategoryFilter>("all")
     const [tab, setTab] = useState<SkillsTabFilter>("skill-tag")
     const filtered = category === "all" ? SKILLS : SKILLS.filter(s => s.category === category)
-
-    const getLegentColor = (category: string) => {
-        return categories.filter((data) => data.id === category)[0].legendColor
-    }
 
     return (
         <section id="skills" className="section-technical-skills">
@@ -123,7 +118,7 @@ export const TechnicalSkills = () => {
                             <Reveal delay={200 + index * 100} direction="up" key={data.name}>
                                 <button className="category-button">
                                     <div className="button-content">
-                                        <span className="legend" style={{backgroundColor: getLegentColor(data.category)}} ></span>
+                                        <span style={{width: "24px", height: "24px", opacity: "0.8"}}><Icon name={data.iconName} /></span>
                                         <span>{data.name}</span>
                                     </div>
                                 </button>
