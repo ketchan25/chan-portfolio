@@ -3,6 +3,7 @@ import { Hero } from './layout/Sections/Hero'
 import { AboutMe } from './layout/Sections/AboutMe'
 import { TechnicalSkills } from './layout/Sections/TechnicalSkills'
 import { Career } from './layout/Sections/Career'
+import { GetInTouch } from './layout/Sections/GetInTouch'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <AboutMe/>
         <TechnicalSkills/>
         <Career/>
+        <GetInTouch/>
       </main>
     </>
   )
