@@ -35,8 +35,8 @@
                 h2 {
                     font-family: vars.$font;
                     color: white;
-                    font-size: clamp(48px, 7vw, 104px);
-                    line-height: 0.9;
+                    font-size: clamp(32px, 7vw, 104px);
+                    line-height: 1;
                     letter-spacing: -0.02em;
                     display: flex;
                     flex-direction: column;

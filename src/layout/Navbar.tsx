@@ -27,7 +27,6 @@ export const Navbar = () => {
                 </ul>
                 <div className='navbar-right'>
                     <button className='theme'>☀</button>
-                    <a href='ketchandetera@gmail.com'>HIRE ME</a>
                 </div>
             </nav>
         </header>

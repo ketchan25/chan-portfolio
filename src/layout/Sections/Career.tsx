@@ -109,13 +109,11 @@ export const Career = () => {
                         </h2>
                     </Reveal>
                     <div className="career-content">
-                        <div className="timeline-container">
+                        <Reveal delay={200} direction="left" className="timeline-container">
                             {TimelineData.map((data, index) => (
-                                <Reveal delay={200 + index * 100} direction="left" key={index}>
-                                    <Timeline dateRangeContent={generateDateRangeContent(data.dateRange, data.isCurrent)} title={data.title} subTitle={data.subTitle} tags={data.skillTags} descriptions={data.descriptions}></Timeline>
-                                </Reveal>
+                                <Timeline dateRangeContent={generateDateRangeContent(data.dateRange, data.isCurrent)} title={data.title} subTitle={data.subTitle} tags={data.skillTags} descriptions={data.descriptions} key={index}></Timeline>
                             ))}
-                        </div>
+                        </Reveal>
                     </div>
                 </div>
             </div>

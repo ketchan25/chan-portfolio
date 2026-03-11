@@ -119,8 +119,10 @@
                 border-radius: 4px;
                 font-size: 12px;
                 text-decoration: none;
+                transform: none;
                 text-transform: uppercase;
                 padding: 0px 32px 0px 32px;
+                color: rgb(10, 10, 14);
 
                 &:hover {
                     transition: all 0.3s ease-in-out;
