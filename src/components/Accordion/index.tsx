@@ -1,3 +1,4 @@
+import { Reveal } from "../Reveal";
 import "./accordion.scss";
 import { useState } from "react";
 
@@ -16,11 +17,13 @@ export const Accordion = ({list, isCollapsed} : AccordionProps) => {
                 {collapsed ? "Details" : "Hide"}
             </button>
             {! collapsed ? <ul>
-                {list.map((data) => (
-                    <li>
-                        <span className="bullet">→</span>
-                        <span className="label">{data}</span>
-                    </li>
+                {list.map((data, index) => (
+                    <Reveal delay={100 + index * 100} direction="left" key={index}>
+                        <li>
+                            <span className="bullet">→</span>
+                            <span className="label">{data}</span>
+                        </li>
+                    </Reveal>
                 ))}
             </ul> : null}
             

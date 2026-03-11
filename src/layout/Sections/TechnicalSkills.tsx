@@ -2,6 +2,7 @@ import { useState } from "react";
 import cx from "classnames";
 import "../../styles/sections/technicalskills.scss";
 import { Button } from "../../components/Button";
+import { Reveal } from "../../components/Reveal";
 
 interface SkillsTab {
     id: "skill-tag" | "proficiency",
@@ -51,12 +52,13 @@ const SKILLS: RecordSkill[] = [
     { name: "Cloudflare", category: "devops", level: 70 },
     { name: "MySQL", category: "database", level: 90 },
     { name: "MSSQL", category: "database", level: 75 },
+    { name: "SQLite", category: "database", level: 75 },
     { name: "ElasticSearch", category: "database", level: 75 },
-    { name: "Firebase", category: "database", level: 75 },
     { name: "GitHub", category: "tools", level: 90 },
     { name: "SVN", category: "tools", level: 90 },
     { name: "GitLab", category: "tools", level: 90 },
     { name: "WAMP / LAMP / LEMP", category: "tools", level: 85 },
+    { name: "Firebase", category: "tools", level: 85 },
 ]
 
 const categories: RecordCategories[] = [
@@ -83,43 +85,49 @@ export const TechnicalSkills = () => {
     }
 
     return (
-        <section className="section-technical-skills">
+        <section id="skills" className="section-technical-skills">
             <div className="technical-skills-container">
                 <div className="technical-skills-content">
-                    <div>
-                        <div className="technical-skills-header">
-                            <span className="section-bullet"/>
-                            Technical Skills
-                        </div> 
-                        <h2>
-                            What I
-                            <br/>
-                            <span>Work With.</span>
-                        </h2>
-                    </div>
+                    <Reveal delay={200} direction="left">
+                        <div>
+                            <div className="technical-skills-header">
+                                <span className="section-bullet"/>
+                                Technical Skills
+                            </div> 
+                            <h2>
+                                What I
+                                <br/>
+                                <span>Work With.</span>
+                            </h2>
+                        </div>
+                    </Reveal>
                     <div className="technical-skills-category-buttons-container">
-                        {categories.map((data) => (
-                            <button key={data.id} className={cx("category-button", {["selected"]: data.id === category})} onClick={() => setCategory(data.id)}>
-                                <div className="button-content">
-                                    {data.id !== "all" ? <span className="legend" style={{backgroundColor: data.legendColor}}></span> : ""}
-                                    <span>{data.label}</span>
-                                </div>
-                            </button>
+                        {categories.map((data, index) => (
+                            <Reveal delay={200 + index * 100} direction="up" key={data.id}>
+                                <button className={cx("category-button", {["selected"]: data.id === category})} onClick={() => setCategory(data.id)}>
+                                    <div className="button-content">
+                                        {data.id !== "all" ? <span className="legend" style={{backgroundColor: data.legendColor}}></span> : ""}
+                                        <span>{data.label}</span>
+                                    </div>
+                                </button>
+                            </Reveal>
                         ))}
                     </div>
-                    <div className="technical-skills-tab">
-                        {skillsTab.map((data) => (
-                            <Button content={data.label} className={cx("tab", {["selected"]: data.id === tab})} onClick={() => setTab(data.id)}></Button>
+                    <Reveal delay={200} direction="up" className="technical-skills-tab">
+                        {skillsTab.map((data, index) => (
+                            <Button key={index} content={data.label} className={cx("tab", {["selected"]: data.id === tab})} onClick={() => setTab(data.id)}></Button>
                         ))}
-                    </div>
+                    </Reveal>
                     <div className="technical-skills-tab-content-container">
-                        {filtered.map((data) => (
-                            <button key={data.name} className="category-button">
-                                <div className="button-content">
-                                    <span className="legend" style={{backgroundColor: getLegentColor(data.category)}} ></span>
-                                    <span>{data.name}</span>
-                                </div>
-                            </button>
+                        {filtered.map((data, index) => (
+                            <Reveal delay={200 + index * 100} direction="up" key={data.name}>
+                                <button className="category-button">
+                                    <div className="button-content">
+                                        <span className="legend" style={{backgroundColor: getLegentColor(data.category)}} ></span>
+                                        <span>{data.name}</span>
+                                    </div>
+                                </button>
+                            </Reveal>
                         ))}
                     </div>
                 </div>

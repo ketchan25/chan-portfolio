@@ -1,6 +1,7 @@
 import "../../styles/sections/career.scss";
 import { Timeline } from "../../components/Timeline";
 import { Tag } from "../../components/Tag";
+import { Reveal } from "../../components/Reveal";
 
 interface TimelineDataProps {
     dateRange: string,
@@ -93,10 +94,10 @@ export const Career = () => {
     };
 
     return (
-        <section className="section-career">
+        <section id="career" className="section-career">
             <div className="career-container">
                 <div className="career-content">
-                    <div>
+                    <Reveal delay={200} direction="left">
                         <div className="career-header">
                             <span className="section-bullet" />
                             Career
@@ -106,11 +107,13 @@ export const Career = () => {
                             <br />
                             <span>Experience.</span>
                         </h2>
-                    </div>
+                    </Reveal>
                     <div className="career-content">
                         <div className="timeline-container">
-                            {TimelineData.map((data) => (
-                                <Timeline dateRangeContent={generateDateRangeContent(data.dateRange, data.isCurrent)} title={data.title} subTitle={data.subTitle} tags={data.skillTags} descriptions={data.descriptions}></Timeline>
+                            {TimelineData.map((data, index) => (
+                                <Reveal delay={200 + index * 100} direction="left" key={index}>
+                                    <Timeline dateRangeContent={generateDateRangeContent(data.dateRange, data.isCurrent)} title={data.title} subTitle={data.subTitle} tags={data.skillTags} descriptions={data.descriptions}></Timeline>
+                                </Reveal>
                             ))}
                         </div>
                     </div>

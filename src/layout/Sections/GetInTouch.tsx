@@ -1,5 +1,13 @@
 import "../../styles/sections/getintouch.scss";
 import { ContactCard } from "../../components/ContactCard";
+import { Reveal } from "../../components/Reveal";
+
+interface ContactInfo {
+    icon: string;
+    name: string;
+    description: string;
+    href: string;
+}
 
 const contactInfo = [
     {icon: "✉", name: "Email", description: "ketchandetera@gmail.com", href: "mailto:ketchandetera@gmail.com",},
@@ -9,17 +17,16 @@ const contactInfo = [
 
 export const GetInTouch = () => {
     return (
-        <section className="section-get-in-touch">
+        <section id="contact" className="section-get-in-touch">
             <div className="get-in-touch-container">
                 <div className="get-in-touch-content">
-                    <div>
+                    <Reveal delay={200} direction="up">
                         <div className="get-in-touch-header">
                             Get in Touch
                             <span className="section-bullet" />
                         </div>
-                        
-                    </div>
-                    <div className="get-in-touch-pitch">
+                    </Reveal>
+                    <Reveal delay={200} direction="up" className="get-in-touch-pitch">
                         <h2>
                             Let's Build
                             <br />
@@ -31,14 +38,14 @@ export const GetInTouch = () => {
                                 Open to new opportunities, freelance projects, and interesting collaborations.
                             </p>
                         </div>
-                    </div>
+                    </Reveal>
                     <div className="get-in-touch-contacts-container">
                         <div className="get-in-touch-contacts">
                             {contactInfo.map((data, index) => (
-                                <ContactCard icon={data.icon} name={data.name} description={data.description} key={index} href={data.href} />
+                                <Reveal delay={200 + index * 100} direction="left" key={index}>
+                                    <ContactCard icon={data.icon} name={data.name} description={data.description} href={data.href} />
+                                </Reveal>
                             ))}
-                        </div>
-                        <div className="get-in-touch-send-message">
                         </div>
                     </div>
                 </div>

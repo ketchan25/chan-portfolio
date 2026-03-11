@@ -1,14 +1,14 @@
 interface ButtonProps {
     content: string | React.ReactNode;
     href?: string;
-    onClick: () => void;
+    onClick?: () => void;
     className?: string;
   }
 
 export const Button = ({content, href, onClick, className} : ButtonProps) => {
     return (
         href
-            ? <a className={className}>{content}</a>
+            ? <a href={href} className={className} onClick={onClick}>{content}</a>
             : <button className={className} onClick={onClick}>{content}</button>
     );
 }

@@ -1,10 +1,15 @@
 import '../styles/navbar.scss'
+import { goToSection } from '../utils/scrollToElement';
 
-const navLinks = [
+interface NavLink {
+    href: string;
+    label: string;
+}
+
+const navLinks: NavLink[] = [
     {href: "#about", label: "About"},
     {href: "#skills", label: "Skills"},
-    {href: "#experience", label: "Experience"},
-    {href: "#projects", label: "Projects"},
+    {href: "#career", label: "Experience"},
     {href: "#contact", label: "Contact"},
 ]
 
@@ -16,7 +21,7 @@ export const Navbar = () => {
                 <ul>
                     <li>
                         {navLinks.map((link, index) => (
-                            <a href={link.href} key={index}>{link.label}</a>
+                            <a onClick={(e) => goToSection(e, link.href.slice(1))} href={link.href} key={index}>{link.label}</a>
                         ))}
                     </li>
                 </ul>
