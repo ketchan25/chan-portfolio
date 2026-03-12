@@ -58,7 +58,8 @@ export const Hero = () => {
             <div className="glow-background"></div>
             <div className="glow-ball-1"></div>
             <div className="glow-ball-2"></div>
-            <img className="chan-watermark" src={chan} alt="Christian Detera" />
+            <img className="chan-watermark" src={chan} alt="chanchan" />
+            <div className="halo"/>
             <div className="hero-container">
                 <Reveal delay={100} direction="left" className="available">
                     <span>Available for freelance & full-time</span>
