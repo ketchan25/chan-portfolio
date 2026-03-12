@@ -123,6 +123,7 @@
                 text-transform: uppercase;
                 padding: 0px 32px 0px 32px;
                 color: rgb(10, 10, 14);
+                z-index: 2;
 
                 &:hover {
                     transition: all 0.3s ease-in-out;
@@ -144,6 +145,7 @@
                 text-decoration: none;
                 text-transform: uppercase;
                 padding: 0px 32px 0px 32px;
+                z-index: 2;
 
                 &:hover {
                     transition: all 0.3s ease-in-out;
@@ -162,6 +164,7 @@
                         color: rgba(255, 255, 255, 0.7);
                     }
                 }
+                
             }
 
             .contact-me {
@@ -208,6 +211,7 @@
                 text-transform: uppercase;
                 padding: 0px 32px 0px 32px;
                 text-decoration: none;
+                z-index: 2;
 
                 &:hover {
                     transform: translateX(4px);

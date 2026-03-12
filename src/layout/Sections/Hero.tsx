@@ -3,6 +3,7 @@ import { Button } from '../../components/Button'
 import '../../styles/sections/hero.scss'
 import { Reveal } from '../../components/Reveal'
 import { goToSection } from '../../utils/scrollToElement'
+import chan from '../../assets/img/chan.png'
 
 const abilities: string[] = [
     "Senior Software Engineer",
@@ -57,6 +58,7 @@ export const Hero = () => {
             <div className="glow-background"></div>
             <div className="glow-ball-1"></div>
             <div className="glow-ball-2"></div>
+            <img className="chan-watermark" src={chan} alt="Christian Detera" />
             <div className="hero-container">
                 <Reveal delay={100} direction="left" className="available">
                     <span>Available for freelance & full-time</span>

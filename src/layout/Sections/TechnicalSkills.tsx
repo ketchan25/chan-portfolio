@@ -62,16 +62,15 @@ const SKILLS: RecordSkill[] = [
 
 const categories: RecordCategories[] = [
     {id: "all", label: "ALL"},
-    {id: "backend", legendColor: "#ff6d3a", label: "BACKEND"},
-    {id: "frontend", legendColor: "#3aabff", label: "FRONTEND"},
-    {id: "devops", legendColor: "#3aff7a", label: "DEVOPS"},
-    {id: "database", legendColor: "#ffd93a", label: "DATABASE"},
-    {id: "tools", legendColor: "#c43aff", label: "TOOLS"},
+    {id: "backend", legendColor: "rgb(255, 109, 58, 0.8)", label: "BACKEND"},
+    {id: "frontend", legendColor: "rgb(58, 171, 255, 0.8)", label: "FRONTEND"},
+    {id: "devops", legendColor: "rgb(58, 255, 122, 0.8)", label: "DEVOPS"},
+    {id: "database", legendColor: "rgb(255, 217, 58, 0.8)", label: "DATABASE"},
+    {id: "tools", legendColor: "rgb(196, 58, 255, 0.8)", label: "TOOLS"},
 ]
 
 const skillsTab: SkillsTab[] = [
     {id: "skill-tag", label: "Skill Tags"},
-    {id: "proficiency", label: "Proficiency"}
 ]
 
 export const TechnicalSkills = () => {
@@ -79,6 +78,10 @@ export const TechnicalSkills = () => {
     const [tab, setTab] = useState<SkillsTabFilter>("skill-tag")
     const filtered = category === "all" ? SKILLS : SKILLS.filter(s => s.category === category)
 
+    const getLegentColor = (category: string) => {
+        return categories.filter((data) => data.id === category)[0].legendColor
+    }
+    
     return (
         <section id="skills" className="section-technical-skills">
             <div className="technical-skills-container">
@@ -99,9 +102,8 @@ export const TechnicalSkills = () => {
                     <div className="technical-skills-category-buttons-container">
                         {categories.map((data, index) => (
                             <Reveal delay={200 + index * 100} direction="up" key={data.id}>
-                                <button className={cx("category-button", {["selected"]: data.id === category})} onClick={() => setCategory(data.id)}>
+                                <button className={cx("category-button", {["selected"]: data.id === category})} onClick={() => setCategory(data.id)} style={{borderColor: data.legendColor}}>
                                     <div className="button-content">
-                                        {data.id !== "all" ? <span className="legend" style={{backgroundColor: data.legendColor}}></span> : ""}
                                         <span>{data.label}</span>
                                     </div>
                                 </button>
@@ -116,9 +118,9 @@ export const TechnicalSkills = () => {
                     <div className="technical-skills-tab-content-container">
                         {filtered.map((data, index) => (
                             <Reveal delay={200 + index * 100} direction="up" key={data.name}>
-                                <button className="category-button">
+                                <button className="category-button" style={{borderColor: getLegentColor(data.category)}}>
                                     <div className="button-content">
-                                        <span style={{width: "24px", height: "24px", opacity: "0.8"}}><Icon name={data.iconName} /></span>
+                                        <span style={{width: "24px", height: "24px"}}><Icon name={data.iconName} /></span>
                                         <span>{data.name}</span>
                                     </div>
                                 </button>
